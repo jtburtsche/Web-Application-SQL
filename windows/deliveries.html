@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Deliveries</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Deliveries</h1>
+[ <a href="purchases">Purchases</a> | <a href="customers">Customers</a> | <a href="deliveries">Deliveries</a>  | <a href="employees">Employees</a> | <a href="employeetransportvehicles">EmployeeTransportVehicles</a> | <a href="transportvehicles">Transport Vehicles</a> | <a href="/">Home</a> ]
+<div id="browse" style="display: block">
+<p><strong>Browse Deliveries</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>delivery_id</th>
+    <th>employee_id</th>
+    <th>customer_id</th>
+    <th>delivery_complete</th>
+    <th>date_to_be_delivered</th>
+    <th>delivery_distance</th>
+    <th>address_line_1</th>
+    <th>address_line_2</th>
+    <th>state</th>
+    <th>zip_code</th>
+    <th>items_to_be_delivered</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td align="right" >1</td>
+    <td align="right" >1</td>
+    <td align="right" >1</td>
+    <td align="right" >2/23/3000</td>
+    <td align="right" >100</td>
+    <td>6555 122 pl</td>
+    <td></td>
+    <td>OR</td>
+    <td align="right" >98333</td>
+    <td>toothbrush</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addDeliveries">
+        <legend><strong>Add Delivery</strong></legend>
+          <fieldset class="fields">
+            <label> delivery_id</label> <input type="text" name="delivery_id">
+            <label> employee_id</label> <input type="text" name="employee_id">
+            <label> customer_id</label> <input type="text" name="customer_id">
+            <label> delivery_complete</label> <input type="text" name="delivery_complete">
+            <label> date_to_be_delivered </label> <input type="text" name="date_to_be_delivered">
+            <label> delivery_distance</label> <input type="text" name="delivery_distance">
+            <label>address_line_1</label> <input type="text" name="address_line_1">
+            <label>address_line_2</label> <input type="text" name="address_line_2">
+            <label>state</label> <input type="text" name="state">
+            <label>zip_code</label> <input type="text" name="zip_code">
+            <label>items_to_be_delivered</label> <input type="text" name="items_to_be_delivered">
+          </fieldset>
+          <input class="btn" type="submit" id="addDelivery" value="Add a Delivery">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new planet-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateDelivery">
+      <legend><strong>Update Deliveries</strong></legend>
+          <fieldset class="fields">
+          <label>delivery_id:</label> 1
+            <label> employee_id </label> <input type="text" value="1" name="employee_id">
+            <label> customer_id</label> <input type="text" value="1" name="customer_id">
+            <label> delivery_complete</label> <input type="text"  name="delivery_complete" value="1">
+            <label> date_to_be_delivered </label> <input type="text" name="date_to_be_delivered" value="2/23/3000">
+            <label> delivery_distance</label> <input type="text" value="100" name="delivery_distance">
+            <label> address_line_1 </label> <input type="text" value="6555 122 pl" name="address_line_1">
+            <label> address_line_2 </label> <input type="text" value="" name="address_line_2">
+            <label> state </label> <input type="text" value="OR" name="state">
+            <label> zip_code</label> <input type="text" value="98333" name="zip_code">
+            <label> items_to_be_delivered </label> <input type="text" value="toothbrush" name="items_to_be_delivered">
+
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveDelivery" value="Save Update Delivery">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteDelivery">
+      <legend><strong>Delete Delivery</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>delivery_id</label> 1
+            <label> customer_id:</label> 1
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteDelivery" value="Delete Delivery">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>

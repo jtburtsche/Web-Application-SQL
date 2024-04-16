@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Purchases</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Purchases</h1>
+[ <a href="purchases">Purchases</a> | <a href="customers">Customers</a> | <a href="deliveries">Deliveries</a>  | <a href="employees">Employees</a> | <a href="employeetransportvehicles">EmployeeTransportVehicles</a> | <a href="transportvehicles">Transport Vehicles</a> | <a href="/">Home</a> ]
+<div id="browse" style="display: block">
+<p><strong>Browse Purchases</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>purchase_id</th>
+    <th>customer_id</th>
+    <th>date_placed</th>
+    <th>total_price</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td align="right" >1</td>
+    <td align="right" >2/12/24</td>
+    <td align="right" >70</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addPurchase">
+        <legend><strong>Add Purchase</strong></legend>
+          <fieldset class="fields">
+            <label> purchase_id</label> <input type="text" name="purchase_id">
+            <label> customer_id </label> <input type="text" name="customer_id">
+            <label> date_placed </label> <input type="text" name="date_placed">
+            <label> total_price</label> <input type="text" name="total_price">
+          </fieldset>
+          <input class="btn" type="submit" id="addPurchase" value="Add a Purchase">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new purchase-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updatePurchase">
+      <legend><strong>Update Purchases</strong></legend>
+          <fieldset class="fields">
+          <label>purchase_id:</label> 1
+            <label> customer_id </label> <input type="text" value="1" name="name">
+            <label> date_placed </label> <input type="text"  name="population" value="2/12/14">
+            <label> total_price </label> <input type="text" name="language" value="70">
+  
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSavePurchase" value="Save Update Purchase">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deletePurchase">
+      <legend><strong>Delete Purchase</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>purchase_id</label> 1
+            <label> customer_id </label> 1
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeletePurchase" value="Delete Purchase">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>

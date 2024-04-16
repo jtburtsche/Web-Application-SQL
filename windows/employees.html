@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employees</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Employees</h1>
+[ <a href="purchases">Purchases</a> | <a href="customers">Customers</a> | <a href="deliveries">Deliveries</a>  | <a href="employees">Employees</a> | <a href="employeetransportvehicles">EmployeeTransportVehicles</a> | <a href="transportvehicles">Transport Vehicles</a> | <a href="/">Home</a> ]
+<div id="browse" style="display: block">
+<p><strong>Browse Employees</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>employee_id</th>
+    <th>pay</th>
+    <th>successful_delivery</th>
+    <th>employee_name</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td align="right" >50</td>
+    <td align="right" >2</td>
+    <td align="right" >Jedd Williams</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addEmployee">
+        <legend><strong>Add Employee</strong></legend>
+          <fieldset class="fields">
+            <label> employee_id</label> <input type="text" name="employee_id">
+            <label> pay </label> <input type="text" name="pay">
+            <label> successful_delivery </label> <input type="text" name="successful_delivery">
+            <label> employee_name</label> <input type="text" name="employee_name">
+          </fieldset>
+          <input class="btn" type="submit" id="addPurchase" value="Add a Purchase">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new planet-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateEmployee">
+      <legend><strong>Update Employees</strong></legend>
+          <fieldset class="fields">
+          <label>employee_id:</label> 1
+            <label> pay </label> <input type="text" value="50" name="pay">
+            <label> successful_delivery </label> <input type="text"  name="successful_delivery" value="2">
+            <label> employee_name </label> <input type="text" name="employee_name" value="Jedd Williams">
+  
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveEmployee" value="Save Update Employee">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteEmployee">
+      <legend><strong>Delete Employee</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>employee_id:</label> 1
+            <label> employee_name: </label> Jedd Williams
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteEmployee" value="Delete Employee">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>

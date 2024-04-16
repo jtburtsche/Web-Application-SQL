@@ -1,0 +1,52 @@
+/* Mainly our own code. We took a couple hints from W3 and the other 
+
+website found below
+
+
+# Citation for CSS Style
+# Date: 3/14/2024
+# Based On:
+# 90% Originality
+# Source URL: https://blog.logrocket.com/five-cool-css-header-styles-with-cross-browser-compatibility/ ,
+https://www.w3schools.com/css/default.asp*/
+
+
+/* Basic CSS Styling for background color, table design
+link color, centering, and multicolor labels for CRUD operations */
+
+a{
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+body{
+    background-color: rgb(237, 209, 209);
+
+}
+h1{
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    padding-top: 1%;
+}
+#references{
+    text-align: center;
+}
+table{
+    width: 50%;
+    background-color: rgb(255, 255, 255)
+}
+table, td, th {
+    border: 1px solid;
+    font-size: 12px;
+  }
+
+h2{
+    font-size: 25px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    text-shadow: 1px 1px 0px  #b1b1b1,
+                 2px 2px 0px #ee4b2b;
+}
+button{
+    font-size: 12px;
+}

@@ -1,0 +1,158 @@
+{{!--Code based on https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data--}}
+{{!--Changes were made to meet the specifications of our entities--}}
+
+
+<!-- index.hbs -->
+
+
+{{!--
+    Citation for the following image and links:
+    Date: 02/25/2024 (link) 3/14/2024(image)
+
+# Citation for Company logo
+# Date: 3/14.2024
+# Copied From
+# 0 % originality (ai generated so we typed the prompt)
+# Source URL: https://www.canva.com/ai-image-generator/  
+
+# Link Citation (got from starter code)
+# Date: 2/16/2024
+# Based on 
+# 20% originality we changed the links to reference our other pages respectively
+# Source Url: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data
+
+--}}
+
+<h1><img src="img/Untitled Project.jpg" alt="Company Logo" width="200" height="50"></h1>
+
+<link rel="stylesheet" href="css/pagestyle.css">
+
+
+<p id="references">
+[<a href="/">Home</a> | <a href="/customers">Customers</a> | <a href="/deliveries">Deliveries</a> | <a href="/employees">Employees</a> | <a href="/purchases">Purchases</a>| <a href="/transportvehicles">Transport Vehicles</a> | <a href="/employeetransportvehicles">Employeetransportvehicles</a>]
+</p>
+
+<h2>Transport Vehicles</h2>
+
+{{!-- Create a table --}}
+{{!--
+    Citation for the following function:
+    Date: 03/06/2024
+    The following code was adapted from the nodejs starter app code  from :https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data and https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%207%20-%20Dynamically%20Deleting%20Data
+
+    This code was adapted from the two sources to use the data from the transportvehicles entity to create a table of the data and to add a delete key to allow the user to delete a transportvehicles
+--}}
+<table id="transportvehicles-table">
+    {{!-- Header Section--}}
+    <thead>
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+            <th>delete</th>
+        </tr>
+    </thead>
+
+    {{!-- Body Section--}}
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{this.vehicle_id}}</td>
+            <td>{{this.vehicle_status}}</td>
+            <td>{{this.last_service_date}}</td>
+            <td>{{this.mileage}}</td>
+            <td>{{this.terrain_type}}</td>
+            <td><button onclick="deleteVehicle({{this.vehicle_id}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+    
+</table>
+<script src="./js/delete_transportvehicles.js"></script>
+{{!--
+    end of Citation
+--}}
+
+
+{{!--
+    Citation for the following function:
+    Date: 03/06/2024
+    The following code was adapted from the nodejs starter app code  from :https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data and https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
+
+    This code was adapted from the source to allow the user to add a transportvehicle entry. The Major changes to the code were editing the form to use input data that would actually be used in the transportvehicle class.
+--}}
+{{!--Form to add a transportvehicle to the table--}}
+<h2>Add a transport vehicle to the table</h2>
+<p>To add a new transportvehicle, please enter their information below and click 'Submit'!</p>
+<p>For Vehicle Status a 0 means that the vehicle is out of service and a 1 means that it is operational.</p>
+<form id="add-transportvehicle-form-ajax">
+    <label for="input-vehicle_status">Vehicle status:</label>
+    <input type="number" name="input-vehicle_status" id="input-vehicle_status"> 
+
+    <label for="input-last_service_date">Last Service Date:</label>
+    <input type="date" name="input-last_service_date" id="input-last_service_date">
+
+    <label for="input-mileage">Current Mileage:</label>
+    <input type="number" name="input-mileage" id="input-mileage"> 
+
+    <label for="input-terrain_type">Terrain Type:</label>
+    <input type="terrain_type" name="input-terrain_type" id="input-terrain_type">
+
+    <input type="submit">
+</form>
+
+<script src="./js/add_transportvehicle.js"></script>
+{{!--
+    end of Citation
+--}}
+
+
+{{!--
+    Citation for the following function:
+    Date: 03/06/2024
+    The following code was adapted from the nodejs starter app code  from :https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data and https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
+    This code was adapted from the source to allow the user to update a transportvehicle entry. The Major changes to the code were choosing the data that would be updatable and making the vehicle_ID have a dynamic dropdown bar
+--}}
+<h2>Update a transport vehicle</h2>
+<form id="update-transportvehicle-form-ajax">
+
+    <label for="input-vehicle_id">Vehicle ID: </label>
+    <select name="input-vehicle_id" id="mySelect">
+        <option>Select the ID of the Vehicle you want to update</option>
+        {{#each data}}
+        <option value="{{this.vehicle_id}}">{{this.vehicle_id}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-mileage">Current Mileage:</label>
+    <input type="number" name="input-mileage" id="input-mileage-update"> 
+
+    <input type="submit">
+
+</form>
+<script src="./js/update_transportvehicles.js"></script>
+{{!--
+    end of Citation
+--}}
+
+{{!--
+    Citation for the following function:
+    Date: 03/06/2024
+    The following code was adapted from the nodejs starter app code  from :https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
+    This code was adapted from the source to allow the user to search a transportvehicle entry. The Major changes to the code was using the terrain type to be searched.
+--}}
+
+<h2>Search for a Transport Vehicle</h2>
+<p>Search by terrain type using the field below. Exact type only</p>
+<form id="search-person-html" method='GET' action='/transportvehicles'>
+    <label for="input-name">Search by Terrain Type: </label>
+    <input type="text" name="name" id="input-name-html-search">
+    
+    <input type="submit">
+    <a href='/transportvehicles'><button>Reset</button></a>
+</form>
+{{!--
+    end of Citation
+--}}

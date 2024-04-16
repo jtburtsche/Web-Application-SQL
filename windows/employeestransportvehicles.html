@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EmployeesTransportVehicles</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>EmployeesTransportVehicles</h1>
+[ <a href="purchases">Purchases</a> | <a href="customers">Customers</a> | <a href="deliveries">Deliveries</a>  | <a href="employees">Employees</a> | <a href="employeetransportvehicles">EmployeeTransportVehicles</a> | <a href="transportvehicles">Transport Vehicles</a> | <a href="/">Home</a> ]
+<div id="browse" style="display: block">
+<p><strong>Browse EmployeesTransportVehicles</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>employees_transportvehicles_id</th>
+    <th>employee_id</th>
+    <th>vehicle_id</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td align="right" >1</td>
+    <td align="right" >1</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addEmployeesTransportVehicles">
+        <legend><strong>Add EmployeesTransportVehicles</strong></legend>
+          <fieldset class="fields">
+            <label> employees_transportvehicles_id</label> <input type="text" name="employees_transportvehicles_id">
+            <label> employee_id </label> <input type="text" name="employee_id">
+            <label> vehicle_id </label> <input type="text" name="vehicle_id">
+          </fieldset>
+          <input class="btn" type="submit" id="addEmployeesTransportVehicles" value="Add a EmployeesTransportVehicles">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new planet-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateEmployeesTransportVehicles">
+      <legend><strong>Update EmployeesTransportVehicles</strong></legend>
+          <fieldset class="fields">
+          <label>employees_transportvehicles_id</label> 1
+            <label> employee_id </label> <input type="text" value="1" name="employee_id">
+            <label> vehicle_id </label> <input type="text"  name="vehicle_id" value="1">
+
+  
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveEmployeesTransportVehicles" value="Save Update EmployeesTransportVehicles">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteEmployeesTransportVehicles">
+      <legend><strong>Delete EmployeesTransportVehicles</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>employees_transportvehicles_id:</label> 1
+            <label> employee_id: </label> 1
+            
+    </fieldset>
+    <input class="btn" type="submit" id="deleteEmployeesTransportVehicles" value="Delete EmployeesTransportVehicles">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>

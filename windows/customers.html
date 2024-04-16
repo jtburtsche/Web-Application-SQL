@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Customers</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Customers</h1>
+[ <a href="purchases">Purchases</a> | <a href="customers">Customers</a> | <a href="deliveries">Deliveries</a>  | <a href="employees">Employees</a> | <a href="employeetransportvehicles">EmployeeTransportVehicles</a> | <a href="transportvehicles">Transport Vehicles</a> | <a href="/">Home</a> ]
+<div id="browse" style="display: block">
+<p><strong>Browse Customers</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>customer_id</th>
+    <th>customer_name</th>
+    <th>phone_number</th>
+    <th>email</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td>Billy Bob</td>
+    <td align="right" >425-333-4343</td>
+    <td>billy@gmail.com</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addCustomer">
+        <legend><strong>Add Customer</strong></legend>
+          <fieldset class="fields">
+            <label> customer_id/label> <input type="text" name="customer_id">
+            <label> customer_name </label> <input type="text" name="customer_name">
+            <label> phone_number </label> <input type="text" name="phone_number">
+            <label> email</label> <input type="text" name="email">
+          </fieldset>
+          <input class="btn" type="submit" id="addPurchase" value="Add a Purchase">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new planet-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateCustomer">
+      <legend><strong>Update Customer</strong></legend>
+          <fieldset class="fields">
+          <label>customer_id:</label> 1
+            <label> customer_name </label> <input type="text" value="Billy Bob" name="customer_name">
+            <label> phone_number</label> <input type="text"  name="phone_number" value="425-333-4343">
+            <label> email </label> <input type="text" name="email" value="billy@gmail.com">
+  
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveCustomer" value="Save Update Customer">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteCustomer">
+      <legend><strong>Delete Customer</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>customer_id:</label> 1
+            <label> customer_name:</label> Billy Bob
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteCustomer" value="Delete Customer">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>

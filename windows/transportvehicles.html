@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TransportVehicles</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>TransportVehicles</h1>
+[ <a href="purchases">Purchases</a> | <a href="customers">Customers</a> | <a href="deliveries">Deliveries</a>  | <a href="employees">Employees</a> | <a href="employeetransportvehicles">EmployeeTransportVehicles</a> | <a href="transportvehicles">Transport Vehicles</a> | <a href="/">Home</a> ]
+<div id="browse" style="display: block">
+<p><strong>Browse TransportVehicles</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>vehicle_id</th>
+    <th>vehicle_status</th>
+    <th>last_service_date</th>
+    <th>mileage</th>
+    <th>terrain_type</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td align="right" >1</td>
+    <td align="right" >2/23/3000</td>
+    <td align="right" >5000</td>
+    <td align="right" >ground</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addTransportVehicle">
+        <legend><strong>Add TransportVehicle</strong></legend>
+          <fieldset class="fields">
+            <label> vehicle_id</label> <input type="text" name="vehicle_id">
+            <label> vehicle_status</label> <input type="text" name="vehicle_status">
+            <label> last_service_date </label> <input type="text" name="last_service_date">
+            <label> mileage</label> <input type="text" name="mileage">
+            <label> terrain_type</label> <input type="text" name="terrain_type">
+          </fieldset>
+          <input class="btn" type="submit" id="addTransportVehicle" value="Add a TransportVehicle">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new planet-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateTransportVehicle">
+      <legend><strong>Update TransportVehicle</strong></legend>
+          <fieldset class="fields">
+          <label>vehicle_id:</label> 1
+            <label> vehicle_status </label> <input type="text" value="1" name="vehicle_status">
+            <label> last_service_date </label> <input type="text"  name="last_service_date" value="2/23/3000">
+            <label> mileage </label> <input type="text" name="mileage" value="5000">
+            <label> terrain_type </label> <input type="text" name="terrain_type" value="ground">
+  
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveTransportVehicle" value="Save Update TransportVehicle">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteTransportVehicle">
+      <legend><strong>Delete TransportVehicle/strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>vehicle_id:</label> 1
+            <label> vehicle_status: </label> 1
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteTransportVehicle" value="Delete TransportVehicle">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>

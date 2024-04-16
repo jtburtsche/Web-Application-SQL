@@ -1,0 +1,188 @@
+{{!--Code based on https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data--}}
+{{!--Changes were made to meet the specifications of our entities--}}
+
+<!-- index.hbs -->
+
+{{!--
+    Citation for the following image and links:
+    Date: 02/25/2024 (link) 3/14/2024(image)
+
+# Citation for Company logo
+# Date: 3/14.2024
+# Copied From
+# 0 % originality (ai generated so we typed the prompt)
+# Source URL: https://www.canva.com/ai-image-generator/  
+
+# Link Citation (got from starter code)
+# Date: 2/16/2024
+# Based on 
+# 20% originality we changed the links to reference our other pages respectively
+# Source Url: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data
+
+--}}
+<h1><img src="img/Untitled Project.jpg" alt="Company Logo" width="200" height="50"></h1>
+
+<link rel="stylesheet" href="css/pagestyle2.css">
+
+
+<p id="references">
+[<a href="/">Home</a> | <a href="/customers">Customers</a> | <a href="/deliveries">Deliveries</a> | <a href="/employees">Employees</a> | <a href="/purchases">Purchases</a>| <a href="/transportvehicles">Transport Vehicles</a> | <a href="/employeetransportvehicles">Employeetransportvehicles</a>]
+</p>
+{{!--
+    Citation for the following function:
+    Date: 03/06/2024
+    The following code was adapted from the nodejs starter app code  from :https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data and https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%207%20-%20Dynamically%20Deleting%20Data
+
+    This code was adapted from the two sources to use the data from the Deliveries entity to create a table of the data and to add a delete key to allow the user to delete a delivery
+--}}
+
+<h2>Deliveries</h2>
+{{!-- Create a table --}}
+<table id="delivery-table">
+    {{!-- Header Section--}}
+    <thead>
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+            <th>delete</th>
+        </tr>
+    </thead>
+
+    {{!-- Body Section--}}
+    <tbody>
+        {{#each data}}
+        <tr data-value = {{this.delivery_id}}>
+            <td>{{this.delivery_id}}</td>
+            <td>{{this.employee_id}}</td>
+            <td>{{this.customer_id}}</td>
+            <td>{{this.delivery_complete}}</td>
+            <td>{{this.date_to_be_delivered}}</td>
+            <td>{{this.delivery_distance}}</td>
+            <td>{{this.address_line1}}</td>
+            <td>{{this.address_line2}}</td>
+            <td>{{this.state}}</td>
+            <td>{{this.zip_code}}</td>
+            <td>{{this.items_to_be_delivered}}</td>
+            <td><button onclick="deleteDelivery({{this.delivery_id}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<script src="./js/delete_delivery.js"></script>
+{{!--
+    end of Citation
+--}}
+
+
+{{!--
+    Citation for the following function:
+    Date: 03/06/2024
+    The following code was adapted from the nodejs starter app code  from :https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data and https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
+
+    This code was adapted from the source to allow the user to add a Delivery entry. The Major changes to the code were editing the form to use input data that would actually be used in the deliveries class and making dynamic dropdown bars for the foreign keys.
+--}}
+{{!--Form to add a Delivery to the table--}}
+<h2>Add a delivery to the table</h2>
+<p>To add a new Delivery, please enter the information below and click 'Submit'!</p>
+<p>For Delivery Status set 0 for undelivered and 1 for delivered</p>
+<form id="add-delivery-form-ajax">
+
+    <select name="input-employee_id" id="input-employee_id">
+        <option value="">Select an Employee</option>
+        {{#each employees}}
+        <option value="{{this.employee_id}}">{{this.employee_name}}</option>
+        {{/each}}
+    </select> 
+
+    <select name="input-customer_id" id="input-customer_id">
+        <option value="">Select a Customer</option>
+        {{#each customers}}
+        <option value="{{this.customer_id}}">{{this.customer_name}}</option>
+        {{/each}}
+    </select> 
+
+    <label for="input-delivery_complete">Delivery Status: </label>
+    <input type="number" name="input-delivery_complete" id="input-delivery_complete"> 
+
+    <label for="input-date_to_be_delivered">Anticipated Delivery Date: </label>
+    <input type="date" name="input-date_to_be_delivered" id="input-date_to_be_delivered"> 
+
+    <label for="input-delivery_distance">Delivery Distance:</label>
+    <input type="number" name="input-delivery_distance" id="input-delivery_distance"> 
+
+    <label for="input-address_line1">Address: </label>
+    <input type="text" name="input-address_line1" id="input-address_line1"> 
+
+    <label for="input-address_line2">Address Line 2:</label>
+    <input type="text" name="input-address_line2" id="input-address_line2"> 
+
+    <label for="input-state">State:</label>
+    <input type="text" name="input-state" id="input-state"> 
+
+    <label for="input-zip_code">Zip Code:</label>
+    <input type="text" name="input-zip_code" id="input-zip_code"> 
+    
+    <label for="input-items_to_be_delivered">Items to be Delivered:</label>
+    <input type="text" name="input-items_to_be_delivered" id="input-items_to_be_delivered"> 
+
+    <input type="submit">
+</form>
+<script src="./js/add_delivery.js"></script>
+{{!--
+    end of Citation
+--}}
+
+
+{{!--
+    Citation for the following function:
+    Date: 03/06/2024
+    The following code was adapted from the nodejs starter app code  from :https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data and https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
+    This code was adapted from the source to allow the user to update a Delivery entry. The Major changes to the code were choosing the data that would be updatable and making the delivery_ID have a dynamic dropdown bar
+--}}
+<h2>Update a Delivery's Status</h2>
+<p>For Delivery Status set 0 for undelivered and 1 for delivered</p>
+<form id="update-delivery-form-ajax">
+
+    <label for="input-delivery_id-update">Delivery ID: </label>
+    <select name="input-delivery_id" id="input-delivery_id-update">
+        <option>Select the delivery ID you want to update</option>
+        {{#each data}}
+        <option value="{{this.delivery_id}}">{{this.delivery_id}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-delivery_complete">Delivery Status:</label>
+    <input type="number" name="input-delivery_complete" id="input-delivery_complete-update"> 
+
+    <input type="submit">
+
+</form>
+
+<script src="./js/update_delivery.js"></script>
+{{!--
+    end of Citation
+--}}
+
+{{!--
+    Citation for the following function:
+    Date: 03/06/2024
+    The following code was adapted from the nodejs starter app code  from :https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
+    This code was adapted from the source to allow the user to search a Delivery entry. The Major changes to the code was using the address to be searched.
+--}}
+<h2>Search for a Delivery</h2>
+<p>Search by address using the field below. Complete address only</p>
+<form id="search-delivery-html" method='GET' action='/deliveries'>
+    <label for="input-address">Search by Name: </label>
+    <input type="text" name="address" id="input-address-html-search">
+    
+    <input type="submit">
+    <a href='/deliveries'><button>Reset</button></a>
+</form>
+{{!--
+    end of Citation
+--}}
+
+

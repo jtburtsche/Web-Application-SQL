@@ -1,0 +1,147 @@
+{{!--Code based on https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data--}}
+{{!--Changes were made to meet the specifications of our entities--}}
+
+
+<!-- index.hbs -->
+
+{{!--
+    Citation for the following image and links:
+    Date: 02/25/2024 (link) 3/14/2024(image)
+
+# Citation for Company logo
+# Date: 3/14.2024
+# Copied From
+# 0 % originality (ai generated so we typed the prompt)
+# Source URL: https://www.canva.com/ai-image-generator/  
+
+# Link Citation (got from starter code)
+# Date: 2/16/2024
+# Based on 
+# 20% originality we changed the links to reference our other pages respectively
+# Source Url: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data
+
+--}}
+
+<h1><img src="img/Untitled Project.jpg" alt="Company Logo" width="200" height="50"></h1>
+
+<link rel="stylesheet" href="css/pagestyle.css">
+
+<p id="references">
+[<a href="/">Home</a> | <a href="/customers">Customers</a> | <a href="/deliveries">Deliveries</a> | <a href="/employees">Employees</a> | <a href="/purchases">Purchases</a>| <a href="/transportvehicles">Transport Vehicles</a> | <a href="/employeetransportvehicles">Employeetransportvehicles</a>]
+</p>
+
+{{!-- Create a table --}}
+{{!--
+    Citation for the following function:
+    Date: 03/06/2024
+    The following code was adapted from the nodejs starter app code  from :https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data and https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%207%20-%20Dynamically%20Deleting%20Data
+
+    This code was adapted from the two sources to use the data from the employees entity to create a table of the data and to add a delete key to allow the user to delete an employee
+--}}
+
+<h2>Employees</h2>
+
+<table id="employee-table">
+    {{!-- Header Section--}}
+    <thead>
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body Section--}}
+    <tbody>
+        {{#each data}}
+        <tr>
+            <td>{{this.employee_id}}</td>
+            <td>{{this.pay}}</td>
+            <td>{{this.employee_name}}</td>
+            <td><button onclick="deleteEmployee({{this.employee_id}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+    
+</table>
+<script src="./js/delete_employee.js"></script>
+{{!--
+    end of Citation
+--}}
+
+
+{{!--Form to add an employee to the table--}}
+
+{{!--
+    Citation for the following function:
+    Date: 03/06/2024
+    The following code was adapted from the nodejs starter app code  from :https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data 
+
+    This code was adapted from the source to allow the user to add an employee entry. The Major changes to the code were editing the form to use input data that would actually be used in the employees class.
+--}}
+<h2>Add an employee to the table</h2>
+<p>To add a new employee, please enter their information below and click 'Submit'!</p>
+<form id="add-employee-form-ajax">
+    <label for="input-pay">Pay:</label>
+    <input type="number" name="input-pay" id="input-pay"> 
+
+    <label for="input-employee_name">Name:</label>
+    <input type="text" name="input-employee_name" id="input-employee_name"> 
+
+    <input type="submit">
+</form>
+
+<script src="./js/add_employee.js"></script>
+{{!--
+    end of Citation
+--}}
+
+{{!--
+    Citation for the following function:
+    Date: 03/06/2024
+    The following code was adapted from the nodejs starter app code  from :https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data and https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
+    This code was adapted from the source to allow the user to update an employee's pay. The Major changes to the code were chosing the data that would be updatable and making the employee_ID have a dynamic dropdown bar
+--}}
+<h2>Update an Employee</h2>
+<form id="update-employee-form-ajax">
+
+    <label for="input-employee_id">Employee ID: </label>
+    <select name="input-employee_id" id="input-employee_id_update">
+        <option>Select the ID of the Employee you want to update</option>
+        {{#each data}}
+        <option value="{{this.employee_id}}">{{this.employee_id}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-pay">Pay:</label>
+    <input type="number" name="input-pay" id="input-pay-update"> 
+
+    <input type="submit">
+
+</form>
+<script src="./js/update_employees.js"></script>
+{{!--
+    end of Citation
+--}}
+
+{{!--
+    Citation for the following function:
+    Date: 03/06/2024
+    The following code was adapted from the nodejs starter app code  from :https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
+    This code was adapted from the source to allow the user to search for an employee entry. The Major changes to the code was using the employee name to be searched.
+--}}
+
+<h2>Search for an Employee</h2>
+<p>Search by name using the field below. Complete names only</p>
+<form id="search-person-html" method='GET' action='/employees'>
+    <label for="input-name">Search by Name: </label>
+    <input type="text" name="name" id="input-ename-html-search">
+    
+    <input type="submit">
+    <a href='/'><button>Reset</button></a>
+</form>
+{{!--
+    end of Citation
+--}}
